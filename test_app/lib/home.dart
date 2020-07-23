@@ -5,13 +5,27 @@ import 'package:flutter/material.dart';
 firstApp() {
   // ignore: non_constant_identifier_names
   var FA = Text(
-    "Mr. Harshit Dawar",
+    "Mr. Harshit Dawar!",
     textDirection: TextDirection.ltr,
     textAlign: TextAlign.center,
   );
 
+  var myAppBar = AppBar(
+    title: FA,
+    backgroundColor: Colors.amber,
+    leading: Text("Technology World!"),
+  );
+
+  var homeScreen = Scaffold(
+    appBar: myAppBar,
+    body: Text(
+      "My Home Screen!",
+      textAlign: TextAlign.center,
+    ),
+  );
+
   var design = MaterialApp(
-    home: FA,
+    home: homeScreen,
   );
 
   return design;

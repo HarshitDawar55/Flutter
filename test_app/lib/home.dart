@@ -10,10 +10,13 @@ firstApp() {
     textAlign: TextAlign.center,
   );
 
+  var emailIcon = Icon(Icons.email);
+
   var myAppBar = AppBar(
     title: FA,
     backgroundColor: Colors.amber,
     leading: Text("Technology World!"),
+    actions: <Widget>[emailIcon],
   );
 
   var homeScreen = Scaffold(

@@ -39,7 +39,7 @@ firstApp() {
   );
 
   var url =
-      "https://raw.githubusercontent.com/HarshitDawar55/Flutter/master/Images/Latest_Image.jpg";
+      "https://github.com/HarshitDawar55/Flutter/raw/master/Images/medium.jpg";
 
   var myImage = Image.network(url);
 

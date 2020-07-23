@@ -11,25 +11,41 @@ firstApp() {
   );
 
   var emailIcon = Icon(Icons.email);
+  var myCalIcon = Icon(Icons.access_alarm);
+
+  pressEvent() {
+    print("Something is Pressed!");
+  }
+
+  pressEvent2() {
+    print("Something is Pressed for Alarm!");
+  }
 
   var emailIconButton = IconButton(
     icon: emailIcon,
-    onPressed: null,
+    onPressed: pressEvent,
+  );
+
+  var callIconButton = IconButton(
+    icon: myCalIcon,
+    onPressed: pressEvent2,
   );
 
   var myAppBar = AppBar(
     title: FA,
     backgroundColor: Colors.amber,
-    leading: Text("Technology World!"),
-    actions: <Widget>[emailIconButton],
+    leading: Text("TW!"),
+    actions: <Widget>[emailIconButton, callIconButton],
   );
+
+  var url =
+      'https://github.com/HarshitDawar55/Flutter/blob/master/Images/medium.JPG';
+
+  var myImage = Image.network(url);
 
   var homeScreen = Scaffold(
     appBar: myAppBar,
-    body: Text(
-      "My Home Screen!",
-      textAlign: TextAlign.center,
-    ),
+    body: myImage,
   );
 
   var design = MaterialApp(

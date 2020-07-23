@@ -12,11 +12,16 @@ firstApp() {
 
   var emailIcon = Icon(Icons.email);
 
+  var emailIconButton = IconButton(
+    icon: emailIcon,
+    onPressed: null,
+  );
+
   var myAppBar = AppBar(
     title: FA,
     backgroundColor: Colors.amber,
     leading: Text("Technology World!"),
-    actions: <Widget>[emailIcon],
+    actions: <Widget>[emailIconButton],
   );
 
   var homeScreen = Scaffold(

@@ -3,13 +3,14 @@ import 'package:flutter/material.dart';
 // ignore: non_constant_identifier_names
 MyProfile() {
   var MyBody = Container(
-    width: 500,
-    height: 500,
+    // width: 500,
+    // height: 500,
     // color: Colors.orange,
     child: Column(
       children: <Widget>[
         Text(
-          "Column Widgets Test",
+          "Technology World",
+          textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 23,
             fontWeight: FontWeight.bold,
@@ -22,11 +23,12 @@ MyProfile() {
           filterQuality: FilterQuality.high,
         ),
         Text(
-          "Column Widget Test2",
+          "ItIsTachnologyWorld@gmail.com",
+          textAlign: TextAlign.center,
           style: TextStyle(
-            fontSize: 33,
+            fontSize: 25,
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: Colors.deepOrange,
           ),
         ),
       ],

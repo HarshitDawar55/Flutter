@@ -1,4 +1,3 @@
-import 'package:business_profile/body.dart';
 import 'package:flutter/material.dart';
 
 myHome() {
@@ -7,8 +6,20 @@ myHome() {
     height: double.infinity,
     color: Colors.amberAccent[100],
     margin: EdgeInsets.all(15),
-    child: Column(
-      children: <Widget>[],
+    child: Stack(
+      children: <Widget>[
+        Container(
+          width: 300,
+          height: 300,
+          color: Colors.pinkAccent[100],
+        ),
+        Container(
+          width: 200,
+          height: 200,
+          color: Colors.brown,
+          margin: EdgeInsets.all(20),
+        )
+      ],
     ),
   );
 

@@ -4,6 +4,14 @@ Email() {
   print("Email Sent");
 }
 
+tap() {
+  print("Image Tapped Single Time!");
+}
+
+doubleTap() {
+  print("Image Tapped Double Time!");
+}
+
 myHome() {
   var myBody = Container(
     width: double.infinity,
@@ -55,7 +63,8 @@ myHome() {
 
         // Image Container
         InkWell(
-          onTap: Email,
+          onTap: tap,
+          onDoubleTap: doubleTap,
           child: Container(
             width: 110,
             height: 110,

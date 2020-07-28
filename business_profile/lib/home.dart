@@ -1,6 +1,17 @@
+import 'package:business_profile/body.dart';
 import 'package:flutter/material.dart';
 
 myHome() {
+  var myBody = Container(
+    width: double.infinity,
+    height: double.infinity,
+    color: Colors.amberAccent[100],
+    margin: EdgeInsets.all(15),
+    child: Column(
+      children: <Widget>[],
+    ),
+  );
+
   // ignore: non_constant_identifier_names
   var HomeDesign = Scaffold(
     appBar: AppBar(
@@ -16,6 +27,7 @@ myHome() {
         ),
       ),
     ),
+    body: myBody,
   );
 
   return MaterialApp(

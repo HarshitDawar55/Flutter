@@ -13,16 +13,29 @@ myHome() {
       children: <Widget>[
         Container(
           // alignment: Alignment.bottomRight,
-          width: 300,
+          width: 400,
           height: 250,
           color: Colors.pinkAccent[100],
+          margin: EdgeInsets.all(50),
         ),
+
+        // Image Container
         Container(
-          width: 150,
-          height: 150,
-          color: Colors.brown,
-          // margin: EdgeInsets.all(20),
-          alignment: Alignment.center,
+          width: 110,
+          height: 110,
+          // color: Colors.brown,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(50),
+            border: Border.all(
+              color: Colors.pinkAccent[100],
+            ),
+            image: DecorationImage(
+              image: NetworkImage(
+                  "https://github.com/HarshitDawar55/Flutter/raw/master/Images/Latest_Image.jpg"),
+              fit: BoxFit.cover,
+            ),
+            // color: Colors.pinkAccent[100],
+          ),
         )
       ],
     ),

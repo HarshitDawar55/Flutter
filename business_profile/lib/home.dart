@@ -7,6 +7,7 @@ myHome() {
     color: Colors.amberAccent[100],
     margin: EdgeInsets.all(15),
     child: Stack(
+      alignment: Alignment.center,
       children: <Widget>[
         Container(
           width: 300,

@@ -17,10 +17,14 @@ myHome() {
       children: <Widget>[
         Container(
           // alignment: Alignment.bottomRight,
-          width: 400,
+          width: 350,
           height: 250,
-          color: Colors.pinkAccent[100],
+          // color: Colors.pinkAccent[100],
           margin: EdgeInsets.all(50),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Colors.pinkAccent[100],
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -32,28 +36,42 @@ myHome() {
                     fontWeight: FontWeight.bold),
               ),
               Row(
-                children: <Widget>[],
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  IconButton(icon: Icon(Icons.email), onPressed: Email),
+                  Text(
+                    "CEO & CTO @TW",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
               )
             ],
           ),
         ),
 
         // Image Container
-        Container(
-          width: 110,
-          height: 110,
-          // color: Colors.brown,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
-            border: Border.all(
-              color: Colors.pinkAccent[100],
+        InkWell(
+          onTap: Email,
+          child: Container(
+            width: 110,
+            height: 110,
+            // color: Colors.brown,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(50),
+              border: Border.all(
+                color: Colors.pinkAccent[100],
+              ),
+              image: DecorationImage(
+                image: NetworkImage(
+                    "https://github.com/HarshitDawar55/Flutter/raw/master/Images/Latest_Image.jpg"),
+                fit: BoxFit.cover,
+              ),
+              // color: Colors.pinkAccent[100],
             ),
-            image: DecorationImage(
-              image: NetworkImage(
-                  "https://github.com/HarshitDawar55/Flutter/raw/master/Images/Latest_Image.jpg"),
-              fit: BoxFit.cover,
-            ),
-            // color: Colors.pinkAccent[100],
           ),
         )
       ],

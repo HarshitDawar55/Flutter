@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+Email() {
+  print("Email Sent");
+}
+
 myHome() {
   var myBody = Container(
     width: double.infinity,
@@ -17,6 +21,18 @@ myHome() {
           height: 250,
           color: Colors.pinkAccent[100],
           margin: EdgeInsets.all(50),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                "Harshit Dawar",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold),
+              )
+            ],
+          ),
         ),
 
         // Image Container

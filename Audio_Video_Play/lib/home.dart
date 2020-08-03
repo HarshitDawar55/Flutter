@@ -1,6 +1,8 @@
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:video_player/video_player.dart';
 
 Email() {
   print("Email Sent");
@@ -94,7 +96,8 @@ myHome() {
               width: 160,
               margin: EdgeInsets.all(10),
               child: RaisedButton(
-                onPressed: () => AudioCache().play("Audios/sultan.mp3"),
+                onPressed: () =>
+                    VideoPlayerController.asset("Videos/SGA.mp4").play(),
                 color: Colors.greenAccent,
                 splashColor: Colors.greenAccent,
                 child: Card(
@@ -116,10 +119,8 @@ myHome() {
               width: 160,
               margin: EdgeInsets.all(10),
               child: RaisedButton(
-                onPressed: () {
-                  var audioPlayer = AudioPlayer(mode: PlayerMode.MEDIA_PLAYER);
-                  audioPlayer.pause();
-                },
+                onPressed: () =>
+                    VideoPlayerController.asset("Videos/SGA.mp4").pause(),
                 color: Colors.greenAccent,
                 splashColor: Colors.greenAccent,
                 child: Card(

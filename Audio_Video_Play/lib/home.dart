@@ -89,6 +89,16 @@ myHome() {
             )
           ],
         ),
+        Text(
+          "Remote Assets",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 25,
+            color: Colors.pink,
+            fontWeight: FontWeight.bold,
+            fontStyle: FontStyle.italic,
+          ),
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
@@ -96,8 +106,9 @@ myHome() {
               width: 160,
               margin: EdgeInsets.all(10),
               child: RaisedButton(
-                onPressed: () =>
-                    VideoPlayerController.asset("Videos/SGA.mp4").play(),
+                onPressed: () => VideoPlayerController.network(
+                        "https://github.com/HarshitDawar55/Flutter/raw/master/Audio_Video_Play/assets/Vidoes/SGA.mp4")
+                    .play(),
                 color: Colors.greenAccent,
                 splashColor: Colors.greenAccent,
                 child: Card(
@@ -119,8 +130,9 @@ myHome() {
               width: 160,
               margin: EdgeInsets.all(10),
               child: RaisedButton(
-                onPressed: () =>
-                    VideoPlayerController.asset("Videos/SGA.mp4").pause(),
+                onPressed: () => VideoPlayerController.network(
+                        "https://github.com/HarshitDawar55/Flutter/raw/master/Audio_Video_Play/assets/Vidoes/SGA.mp4")
+                    .pause(),
                 color: Colors.greenAccent,
                 splashColor: Colors.greenAccent,
                 child: Card(

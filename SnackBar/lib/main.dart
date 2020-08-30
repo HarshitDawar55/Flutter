@@ -11,7 +11,13 @@ class SnackBar_APP extends StatelessWidget{
         appBar: AppBar(
           title: Text(
             "SnackBar App",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontStyle: FontStyle.italic,
+              fontSize: 23,
+            ),
           ),
+          actions: [Icon(Icons.accessibility_new)],
         ),
       ),
     );

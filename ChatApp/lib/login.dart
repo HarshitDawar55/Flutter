@@ -44,6 +44,7 @@ class _MyLoginState extends State<MyLogin> {
                     // Assigning the Email Address Keyboard Type
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.email),
                         hintText: "Enter Email ID",
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
@@ -64,6 +65,7 @@ class _MyLoginState extends State<MyLogin> {
                     keyboardType: TextInputType.multiline,
                     obscureText: true,
                     decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.lock),
                         hintText: "Password",
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
@@ -107,7 +109,7 @@ class _MyLoginState extends State<MyLogin> {
                           //print(user);
 
                           if (user != null) {
-                            Navigator.pushNamed(context, "/chat");
+                            Navigator.pushNamed(context, "/streamingchat");
                             setState(() {
                               showProgressSpinner = false;
                             });

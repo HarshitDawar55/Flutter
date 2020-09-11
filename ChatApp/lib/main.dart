@@ -1,3 +1,4 @@
+import 'package:ChatApp/StreamingChat.dart';
 import 'package:ChatApp/chat.dart';
 import 'package:ChatApp/home.dart';
 import 'package:ChatApp/login.dart';
@@ -8,16 +9,15 @@ import 'package:flutter/material.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   Firebase.initializeApp();
-  runApp(
-    MaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: "/",
-      routes: {
-        "/": (context) => MyHome(),
-        "/register": (context) => MyReg(),
-        "/login": (context) => MyLogin(),
-        "/chat": (context) => MyChat(),
-      },
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    initialRoute: "/",
+    routes: {
+      "/": (context) => MyHome(),
+      "/register": (context) => MyReg(),
+      "/login": (context) => MyLogin(),
+      "/chat": (context) => MyChat(),
+      "/streamingchat": (context) => StreamingChat(),
+    },
   ));
 }
-

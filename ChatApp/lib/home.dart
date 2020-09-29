@@ -8,71 +8,73 @@ class MyHome extends StatefulWidget {
 class _MyHomeState extends State<MyHome> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "Chat App",
-            style: TextStyle(
-              fontSize: 25,
-              fontStyle: FontStyle.italic,
-              fontWeight: FontWeight.bold,
+    return Container(
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          appBar: AppBar(
+            title: Text(
+              "Chat App",
+              style: TextStyle(
+                fontSize: 25,
+                fontStyle: FontStyle.italic,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
-        ),
-        body: Container(
-          width: double.infinity,
-          alignment: Alignment.center,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Material(
-                color: Colors.lightGreenAccent,
-                borderRadius: BorderRadius.circular(20),
-                elevation: 15,
-                child: MaterialButton(
-                    minWidth: 250,
-                    child: Text(
-                      "Register",
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontStyle: FontStyle.italic,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.deepOrange,
+          body: Container(
+            width: double.infinity,
+            alignment: Alignment.center,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Material(
+                  color: Colors.lightGreenAccent,
+                  borderRadius: BorderRadius.circular(20),
+                  elevation: 15,
+                  child: MaterialButton(
+                      minWidth: 250,
+                      child: Text(
+                        "Register",
+                        style: TextStyle(
+                          fontSize: 25,
+                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.deepOrange,
+                        ),
                       ),
-                    ),
-                    onPressed: () {
-                      Navigator.pushNamed(context, "/register");
-                    }),
-              ),
-              SizedBox(
-                height: 25,
-              ),
-              Material(
-                color: Colors.lightGreenAccent,
-                borderRadius: BorderRadius.circular(20),
-                elevation: 15,
-                child: MaterialButton(
-                    minWidth: 250,
-                    child: Text(
-                      "Login",
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontStyle: FontStyle.italic,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.deepOrange,
+                      onPressed: () {
+                        Navigator.pushNamed(context, "/register");
+                      }),
+                ),
+                SizedBox(
+                  height: 25,
+                ),
+                Material(
+                  color: Colors.lightGreenAccent,
+                  borderRadius: BorderRadius.circular(20),
+                  elevation: 15,
+                  child: MaterialButton(
+                      minWidth: 250,
+                      child: Text(
+                        "Login",
+                        style: TextStyle(
+                          fontSize: 25,
+                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.deepOrange,
+                        ),
                       ),
-                    ),
-                    onPressed: () {
-                      Navigator.pushNamed(context, "/login");
-                    }),
-              ),
-              SizedBox(
-                height: 15,
-              ),
-            ],
+                      onPressed: () {
+                        Navigator.pushNamed(context, "/login");
+                      }),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+              ],
+            ),
           ),
         ),
       ),

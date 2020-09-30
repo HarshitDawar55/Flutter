@@ -7,7 +7,34 @@ class MyLogin extends StatefulWidget {
   _MyLoginState createState() => _MyLoginState();
 }
 
-class _MyLoginState extends State<MyLogin> {
+class _MyLoginState extends State<MyLogin> with SingleTickerProviderStateMixin {
+  var animation;
+
+  AnimationController _controller;
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 1),
+    );
+    animation = CurvedAnimation(parent: _controller, curve: Curves.easeIn)
+      ..addListener(() {
+        setState(() {
+          print(animation.value);
+        });
+      });
+    print(animation);
+    _controller.forward();
+    print(animation);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
+
   var authentication = FirebaseAuth.instance;
 
   String email, password;
@@ -36,6 +63,25 @@ class _MyLoginState extends State<MyLogin> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  GestureDetector(
+                    onTap: () => _controller.forward(from: 0.0),
+                    child: Container(
+                      color: Colors.amber,
+                      width: MediaQuery.of(context).size.width * 0.9,
+                      height: MediaQuery.of(context).size.height * 0.05,
+                      child: Text(
+                        "Welcome to my Chat App",
+                        style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                          fontStyle: FontStyle.italic,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 55,
+                  ),
                   Material(
                       //color: Colors.pinkAccent[100],
                       //borderRadius: BorderRadius.circular(20),

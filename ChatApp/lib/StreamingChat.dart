@@ -1,20 +1,46 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
 
 class StreamingChat extends StatefulWidget {
   @override
   _StreamingChatState createState() => _StreamingChatState();
 }
 
-class _StreamingChatState extends State<StreamingChat> {
+class _StreamingChatState extends State<StreamingChat>
+    with SingleTickerProviderStateMixin {
   String message;
 
   var fs = FirebaseFirestore.instance;
   var authenticate = FirebaseAuth.instance;
   var messageTextContoller = TextEditingController();
   var showProgressSpinner = false;
+  var animation;
+
+  AnimationController _controller;
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 1),
+    );
+    animation = CurvedAnimation(parent: _controller, curve: Curves.easeIn)
+      ..addListener(() {
+        setState(() {
+          print(animation.value);
+        });
+      });
+    print(animation);
+    _controller.forward();
+    print(animation);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +63,7 @@ class _StreamingChatState extends State<StreamingChat> {
         // For Container Alignment
         alignment: Alignment.center,
         child: Column(
-          // Fot Column Widgets Alignment
+          // For Column Widgets Alignment
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             StreamBuilder<QuerySnapshot>(
@@ -63,9 +89,10 @@ class _StreamingChatState extends State<StreamingChat> {
                   height: mobileHeight * 0.3,
                   width: mobileWidth * 0.9,
                   child: ListView.builder(
+                      scrollDirection: Axis.vertical,
                       itemCount: z.length,
                       itemBuilder: (BuildContext context, int index) {
-                        return ListTile(
+                        return new ListTile(
                           title: z[index],
                         );
                       }),
@@ -95,40 +122,56 @@ class _StreamingChatState extends State<StreamingChat> {
                     )),
               ),
             ),
-            RaisedButton(
-              color: Colors.lightGreenAccent,
-              child: Text(
-                "Send Message",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                  fontStyle: FontStyle.italic,
-                  color: Colors.red,
-                ),
-              ),
-              onPressed: () async {
-                messageTextContoller.clear();
-                await fs.collection("chatMessages").add({
-                  "Message": message,
-                  "Sender": user,
-                });
-              },
+            SizedBox(
+              height: 25,
             ),
-            RaisedButton(
-              color: Colors.lightGreenAccent,
-              child: Text(
-                "LogOut",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                  fontStyle: FontStyle.italic,
-                  color: Colors.red,
+            GestureDetector(
+              onDoubleTap: () {
+                _controller.forward(from: 0.0);
+              },
+              child: Container(
+                child: RaisedButton(
+                  color: Colors.lightGreenAccent,
+                  child: Text(
+                    "Send Message",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      fontStyle: FontStyle.italic,
+                      color: Colors.red,
+                    ),
+                  ),
+                  onPressed: () async {
+                    messageTextContoller.clear();
+                    await fs.collection("chatMessages").add({
+                      "Message": message,
+                      "Sender": user,
+                    });
+                  },
                 ),
               ),
-              onPressed: () async {
-                await authenticate.signOut();
-                Navigator.pushNamed(context, "/");
-              },
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            GestureDetector(
+              onTap: () => _controller.forward(from: 0.0),
+              child: RaisedButton(
+                color: Colors.lightGreenAccent,
+                child: Text(
+                  "LogOut",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    fontStyle: FontStyle.italic,
+                    color: Colors.red,
+                  ),
+                ),
+                onPressed: () async {
+                  await authenticate.signOut();
+                  Navigator.pushNamed(context, "/");
+                },
+              ),
             ),
           ],
         ),
